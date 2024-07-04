@@ -2,7 +2,7 @@ version: '3'
 
 services:
   grafana-loki:
-    image: grafana/loki:3.0.0
+    image: grafana/loki:3.1.0
     command: 
       - "--config.file=/etc/loki/local-config.yaml"
     volumes:
@@ -10,12 +10,12 @@ services:
     ports:
       - "3100:3100"
 
-  grafana-promtail:
-    image: grafana/promtail:3.0.0
-    command: 
-      - "-config.file=/etc/promtail/config.yaml"
-    volumes:
-      - ./promtail-config.yaml:/etc/promtail/config.yaml
-      - /var/log:/var/log
-    ports:
-      - "9080:9080"
+#  grafana-promtail:
+#    image: grafana/promtail:3.0.0
+#    command: 
+#      - "-config.file=/etc/promtail/config.yaml"
+#    volumes:
+#      - ./promtail-config.yaml:/etc/promtail/config.yaml
+#      - /var/log:/var/log
+#    ports:
+#      - "9080:9080"
