@@ -10,12 +10,17 @@ services:
     ports:
       - "3100:3100"
 
-#  grafana-promtail:
-#    image: grafana/promtail:3.0.0
-#    command: 
-#      - "-config.file=/etc/promtail/config.yaml"
-#    volumes:
-#      - ./promtail-config.yaml:/etc/promtail/config.yaml
-#      - /var/log:/var/log
-#    ports:
-#      - "9080:9080"
+  grafana-promtail:
+    image: grafana/promtail:3.0.0
+    command: 
+      - "-config.file=/etc/promtail/config.yaml"
+    volumes:
+      - ./promtail-config.yaml:/etc/promtail/config.yaml
+      - /var/log:/var/log
+    ports:
+      - "9080:9080"
+
+  grafana:
+    image: grafana/grafana:9.3.2
+    ports:
+      - "3000:3000"
